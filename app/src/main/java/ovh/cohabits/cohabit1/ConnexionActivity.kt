@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.*
+import androidx.cardview.widget.CardView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
@@ -126,5 +127,8 @@ class ConnexionActivity : AppCompatActivity() {
 
             app.queue?.add(stringRequest)
         }
+        val cardView = findViewById<CardView>(R.id.card_view)
+        cardView.setBackgroundResource(R.drawable.card_view_droit)
+        newButton.setBackgroundResource(R.drawable.edit_button_creer_compte)
     }
 }

@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.android.volley.*
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -22,6 +23,7 @@ class CreationCompteActivity : AppCompatActivity() {
         val app = (getApplication() as cohabitsClass)
 
         val backButton = findViewById<Button>(R.id.button_retour_connexion)
+        backButton.setBackgroundResource(R.drawable.edit_button)
         backButton.setOnClickListener {
             val intent = Intent(this, ConnexionActivity::class.java)
             startActivity(intent)
@@ -72,5 +74,7 @@ class CreationCompteActivity : AppCompatActivity() {
             //now push the request object in the Volley queue
             app.queue?.add(stringRequest)
         }
+        val cardView = findViewById<CardView>(R.id.card_view)
+        cardView.setBackgroundResource(R.drawable.card_view_gauche)
     }
 }
