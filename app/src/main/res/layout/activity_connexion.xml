@@ -4,102 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConnexionActivity">
+    tools:context=".ConnexionActivity"
+    android:background="@color/purple_200"
+    >
 
-    <TextView
-        android:id="@+id/textViewConnexion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Connexion"
-        app:layout_constraintBottom_toTopOf="@+id/textViewConnectezVousPourContinuer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_gravity="center"
+        android:background="@drawable/edit_edittext"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        >
 
-    <TextView
-        android:id="@+id/textViewConnectezVousPourContinuer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="Connectez vous pour continuer"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewConnexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Connexion"
+            android:textColor="#0E194D"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textViewConnectezVousPourContinuer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editText_emailAddress_identification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:textColorHighlight="#968EB3"
-        android:textColorLink="#968EB3"
-        app:layout_constraintBottom_toTopOf="@+id/textViewMDP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewConnectezVousPourContinuer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="Connectez vous pour continuer"
+            android:textSize="12sp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="85dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:text="Email"
-        app:layout_constraintBottom_toTopOf="@+id/editText_emailAddress_identification"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editText_emailAddress_identification"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="56dp"
+            android:background="@drawable/edit_edittext"
+            android:layout_marginTop="165dp"
+            android:ems="10"
+            android:hint="hello@reallygreatsite.com"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewMDP"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewMDP"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="52dp"
-        android:text="Mot de passe"
-        app:layout_constraintBottom_toTopOf="@+id/editText_Password_identification"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="140dp"
+            android:text="Email"
+            android:textColor="#0E194D"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editText_emailAddress_identification"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editText_Password_identification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button_connexion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/textViewMDP"
+            android:textColor="#0E194D"
+            android:layout_width="wrap_content"
+            android:layout_height="19dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginBottom="10dp"
+            android:text="Mot de passe"
+            android:layout_marginTop="230dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/editText_Password_identification"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button_connexion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="Continuer"
-        app:layout_constraintBottom_toTopOf="@+id/button_noCompte"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editText_Password_identification"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_edittext"
+            android:ems="10"
+            android:hint="**********"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="255dp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_connexion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_connexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_button"
+            android:text="Continuer"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:layout_marginTop="320dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_noCompte"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <Button
+            android:id="@+id/button_noCompte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="380dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/edit_button_creer_compte"
+            android:text="Je n'ai pas de compte"
+            android:textAllCaps="false"
+            android:textColor="#0E194D"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <ImageView
         android:id="@+id/imageViewLogoConnexion"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewConnexion"
+        app:layout_constraintBottom_toTopOf="@+id/card_view"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.565"
         app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/button_noCompte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Je n'ai pas de compte"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
