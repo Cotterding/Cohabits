@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="ovh.cohabits.cohabit1.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_statut"
+        android:name="ovh.cohabits.cohabit1.StatutFragment"
+        android:label="@string/title_statut"
+        tools:layout="@layout/fragment_statut" />
+
+    <fragment
+        android:id="@+id/navigation_tache"
+        android:name="ovh.cohabits.cohabit1.TacheFragment"
+        android:label="@string/title_tache"
+        tools:layout="@layout/fragment_tache"
+        />
+
+    <fragment
+        android:id="@+id/navigation_comptes"
+        android:name="ovh.cohabits.cohabit1.ComptesFragment"
+        android:label="@string/title_comptes"
+        tools:layout="@layout/fragment_comptes" />
+
+</navigation>

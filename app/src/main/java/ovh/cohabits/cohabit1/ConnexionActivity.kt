@@ -126,6 +126,8 @@ class ConnexionActivity : AppCompatActivity() {
             //otherwise do nothing (and never trigger a null pointer error)
 
             app.queue?.add(stringRequest)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
         val cardView = findViewById<CardView>(R.id.card_view)
         cardView.setBackgroundResource(R.drawable.card_view_droit)

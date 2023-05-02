@@ -29,8 +29,12 @@
         <activity
             android:name="ovh.cohabits.cohabit1.CreationCompteActivity"
             android:exported="true">
-
         </activity>
+        <activity
+            android:name="ovh.cohabits.cohabit1.MainActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
