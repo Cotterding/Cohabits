@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import com.android.volley.*
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 
 class CreationCompteActivity : AppCompatActivity() {
@@ -41,40 +42,25 @@ class CreationCompteActivity : AppCompatActivity() {
             //todo: enforce password security (length and character types)
 
             //build the url string with server address and arguments
-            var url= app.apiurl() + "student/create?nickname=" + pseudo + "&email=" + email + "&password=" + pwd
+            var url = "/student/create"
 
-            //create the Volley request object
-            val stringRequest = StringRequest(
-                Request.Method.GET, url,
-                Response.Listener
-                { response ->
-                    // Display the response string.
-                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show()
-                    println(response)
-                },
-                object : Response.ErrorListener {
-                    override fun onErrorResponse(error: VolleyError) {
-                        if (error is NoConnectionError) {
-                            println("No internet connection")
-                        } else if (error is TimeoutError) {
-                            println("TimeoutError")
-                        } else if (error is AuthFailureError) {
-                            println("Please check your credentials")
-                        } else if (error is ServerError) {
-                            println("Server is not responding. Please try again later")
-                        } else if (error is NetworkError) {
-                            println("Please check your internet connection")
-                        } else if (error is ParseError) {
-                            println("Parsing error! Please try again after some time")
-                        } else if (error is ParseError) {
-                            println("Parsing error! Please try again after some time")
-                        }
-                    }
-                })
-            //now push the request object in the Volley queue
-            app.queue?.add(stringRequest)
+            var data = JSONObject()
+            data.put("nickname",pseudo)
+            data.put("email", email)
+            data.put("password", pwd)
+
+            fun done(response: JSONObject) {
+                //display the response message with a popup on screen
+                //todo: change activity is connection was successful
+                //todo: display the correct message if connection was refused
+                Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show()
+                //print the response in the android studio trace window (when debugging)
+                println(response)
+            }
+            app.request(url, data, ::done)
         }
-        val cardView = findViewById<CardView>(R.id.card_view)
+
+	val cardView = findViewById<CardView>(R.id.card_view)
         cardView.setBackgroundResource(R.drawable.card_view_gauche)
     }
 }

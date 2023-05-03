@@ -12,6 +12,7 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 class ConnexionActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -78,56 +79,22 @@ class ConnexionActivity : AppCompatActivity() {
             var pwd = findViewById<EditText>(R.id.editText_Password_identification).getText().toString()
 
             //build the url string with server address and arguments
-            var url = app.apiurl() + "student/connect?email=" + email + "&password=" + pwd
+            var url = "/student/connect"
 
-            //create the Volley request object
-            val stringRequest = StringRequest(
-                Request.Method.GET,
-                url,
-                Response.Listener
-                { response ->
-                    //display the response string with a popup on wcreen
-                    //todo: change activity is connection was successful
-                    //todo: display the correct message if connection was refused
-                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show()
-                    //print the response in the android studio trace window (when debugging)
-                    println(response)
-                },
-                object : Response.ErrorListener {
-                    //this is an object used only to add the onErrorResponse function on it
-                    override fun onErrorResponse(error: VolleyError) {
-                        //display the error in android studio trace window (when debugging)
-                        if (error is com.android.volley.NoConnectionError) {
-                            println("No internet connection")
-                        } else if (error is com.android.volley.TimeoutError) {
-                            println("TimeoutError")
-                        } else if (error is com.android.volley.AuthFailureError) {
-                            println("Please check your credentials")
-                        } else if (error is com.android.volley.ServerError) {
-                            println("Server is not responding. Please try again later")
-                        } else if (error is com.android.volley.NetworkError) {
-                            println("Please check your internet connection")
-                        } else if (error is com.android.volley.ParseError) {
-                            println("Parsing error! Please try again after some time")
-                        } else if (error is com.android.volley.ParseError) {
-                            println("Parsing error! Please try again after some time")
-                        }
-                    }
-                })
+            var data = JSONObject()
+            data.put("email", email)
+            data.put("password", pwd)
 
-            //now add the request in the Volley request queue
-            //the Volley library will later call either :
-            // - the Response.listener defined above if the request receives a response
-            // - or the Response.errorListener defined above in case of error
+            fun done(response: JSONObject) {
+                //display the response message with a popup on screen
+                //todo: change activity is connection was successful
+                //todo: display the correct message if connection was refused
+                Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show()
+                //print the response in the android studio trace window (when debugging)
+                println(response)
+            }
 
-            //we need here to add the question mark after the app variable name
-            //because the queue attribute was defined as Nullable type "RequestQueue?"
-            //here the question mark means : use the value if not null
-            //otherwise do nothing (and never trigger a null pointer error)
-
-            app.queue?.add(stringRequest)
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            app.request(url, data, ::done)
         }
         val cardView = findViewById<CardView>(R.id.card_view)
         cardView.setBackgroundResource(R.drawable.card_view_droit)
