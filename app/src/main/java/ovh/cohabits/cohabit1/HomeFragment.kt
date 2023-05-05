@@ -1,10 +1,13 @@
 package ovh.cohabits.cohabit1
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.cardview.widget.CardView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,6 +37,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        //Mettre la condition ici
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -56,4 +60,7 @@ class HomeFragment : Fragment() {
                 }
             }
     }
+
+
+
 }

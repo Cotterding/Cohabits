@@ -74,7 +74,7 @@ class ConnexionActivity : AppCompatActivity() {
         val logonButton = findViewById<Button>(R.id.button_connexion)
         logonButton.setOnClickListener {
 
-            //get data from editText fields
+            /*//get data from editText fields
             var email = findViewById<EditText>(R.id.editText_emailAddress_identification).getText().toString()
             var pwd = findViewById<EditText>(R.id.editText_Password_identification).getText().toString()
 
@@ -93,9 +93,16 @@ class ConnexionActivity : AppCompatActivity() {
                 //print the response in the android studio trace window (when debugging)
                 println(response)
             }
+            app.request(url, data, ::done)*/
 
-            app.request(url, data, ::done)
+            //launch the home activity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+
+
+
         }
+
         val cardView = findViewById<CardView>(R.id.card_view)
         cardView.setBackgroundResource(R.drawable.card_view_droit)
         newButton.setBackgroundResource(R.drawable.edit_button_creer_compte)

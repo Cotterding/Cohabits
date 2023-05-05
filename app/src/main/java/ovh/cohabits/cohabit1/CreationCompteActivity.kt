@@ -57,7 +57,7 @@ class CreationCompteActivity : AppCompatActivity() {
                 //print the response in the android studio trace window (when debugging)
                 println(response)
             }
-            app.request(url, data, ::done)
+//            app.request(url, data, ::done)
         }
 
 	val cardView = findViewById<CardView>(R.id.card_view)
