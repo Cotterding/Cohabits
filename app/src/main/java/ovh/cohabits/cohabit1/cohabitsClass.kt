@@ -4,8 +4,14 @@ import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import com.android.volley.RequestQueue
-import com.android.volley.toolbox.Volley
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley.newRequestQueue
+import org.json.JSONObject
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.VolleyError
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 //we need to subclass the android native Application class
 //because we need to store permanent data
@@ -45,6 +51,12 @@ class cohabitsClass() : android.app.Application() {
     //cohabits backend server IP address
     val serveraddr = "51.38.238.103"
 
+    //session string identifying the app connection on the server
+    //we start with the email eddress until we have true sessions
+    //session may be empty during onboarding (create account and connect)
+    //then session MUST be the email of the app user
+    var session = ""
+
     //this method is called by kotlin when creating the app object
     //we override its definition for the subclass cohabitsClass
     override fun onCreate() {
@@ -63,6 +75,40 @@ class cohabitsClass() : android.app.Application() {
     //this method will return the API url
     //use it by appending the API message and its parameters as URL parameters
     fun apiurl(): String {
-        return "http://" + serveraddr + ":" + httpPort + "/"
+        return "http://" + serveraddr + ":" + httpPort
+    }
+
+    //send HTTP request
+    //callback is 3rd argument
+    //error management only ensure logging
+    fun request(command: String, data: JSONObject, listener: (response: JSONObject) -> Unit) {
+        val url = "http://" + serveraddr + ":" + httpPort + command
+        println(url)
+        println(data.toString())
+        val req = JsonObjectRequest(Request.Method.POST, url, data, listener,
+            object : Response.ErrorListener {
+                //this is an object used only to add the onErrorResponse function on it
+                override fun onErrorResponse(error: VolleyError) {
+                    //display the error in android studio trace window (when debugging)
+                    if (error is com.android.volley.NoConnectionError) {
+                        println("No internet connection")
+                    } else if (error is com.android.volley.TimeoutError) {
+                        println("TimeoutError")
+                    } else if (error is com.android.volley.AuthFailureError) {
+                        println("Please check your credentials")
+                    } else if (error is com.android.volley.ServerError) {
+                        println("Server is not responding. Please try again later")
+                        println(String(error.networkResponse.data))
+                    } else if (error is com.android.volley.NetworkError) {
+                        println("Please check your internet connection")
+                    } else if (error is com.android.volley.ParseError) {
+                        println("Parsing error! Please try again after some time")
+                    } else if (error is com.android.volley.ParseError) {
+                        println("Parsing error! Please try again after some time")
+                    }
+                }
+            }
+        )
+        queue?.add(req)
     }
 }
