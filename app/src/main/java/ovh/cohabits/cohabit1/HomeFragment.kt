@@ -1,5 +1,6 @@
 package ovh.cohabits.cohabit1
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils.replace
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,14 +49,11 @@ class HomeFragment : Fragment() {
         val button_creer = view?.findViewById<Button>(R.id.button_creer_colocation)
         button_creer?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
         button_creer?.setOnClickListener() {
+            findNavController().navigate(R.id.action_home_to_add_colocation)
 
-            //println("test")
-            //val intent = Intent(activity, MainActivity::class.java)
-            //activity?.startActivity(intent)
         }
         val button_rejoindre = view?.findViewById<Button>(R.id.button_rejoindre_colocation)
         button_rejoindre?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
-
 
         //Mettre la condition ici
         return view
