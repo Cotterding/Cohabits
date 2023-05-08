@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_statut"
-        android:name="ovh.cohabits.cohabit1.StatutFragment"
+        android:name="ovh.cohabits.cohabit1.AddColocationFragment"
         android:label="@string/title_statut"
-        tools:layout="@layout/fragment_statut" />
+        tools:layout="@layout/fragment_add_colocation" />
 
     <fragment
         android:id="@+id/navigation_tache"

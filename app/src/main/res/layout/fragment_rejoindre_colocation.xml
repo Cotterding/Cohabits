@@ -22,7 +22,7 @@
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_box"
+        android:id="@+id/card_view_box_rejoindre_colocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -34,44 +34,56 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/textViewColocation"
+            android:id="@+id/textViewRejoindreColocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="25dp"
-            android:text="Tu n'as pas encore de colocation"
+            android:text="Rejoindre une colocation"
             android:textAlignment="center"
             android:textColor="#0E194D"
             android:textSize="16sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
-
-        <Button
-            android:id="@+id/button_creer_colocation"
+        <TextView
+            android:id="@+id/textViewCODEColocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="20dp"
-            android:text="Créer"
-            android:background="@drawable/edit_button"
-            android:textAllCaps="false"
-            android:textSize="15sp" />
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
+            android:text="Code colocation"
+            android:textColor="#0E194D"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editText_CodeColocation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/edit_edittext"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="85dp"
+            android:ems="10"
+            android:paddingLeft="10dp"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/button_rejoindre_colocation"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="20dp"
             android:text="Rejoindre"
             android:background="@drawable/edit_button"
             android:textAllCaps="false"
             android:textSize="15sp" />
 
     </androidx.cardview.widget.CardView>
-
 
 </FrameLayout>
