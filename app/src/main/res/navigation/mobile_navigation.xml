@@ -17,6 +17,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_home_to_rejoindre_colocation"
+            app:destination="@id/rejoindre_coloc"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 
     <fragment
@@ -25,8 +32,13 @@
         tools:layout="@layout/fragment_add_colocation" />
 
     <fragment
+        android:id="@+id/rejoindre_coloc"
+        android:name="ovh.cohabits.cohabit1.RejoindreColocationFragment"
+        tools:layout="@layout/fragment_rejoindre_colocation"/>
+
+    <fragment
         android:id="@+id/navigation_statut"
-        android:name="ovh.cohabits.cohabit1.AddColocationFragment"
+        android:name="ovh.cohabits.cohabit1.StatutFragment"
         android:label="@string/title_statut"
         tools:layout="@layout/fragment_statut" />
 

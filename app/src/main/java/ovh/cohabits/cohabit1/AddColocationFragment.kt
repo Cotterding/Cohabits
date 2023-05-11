@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,7 +40,11 @@ class AddColocationFragment : Fragment() {
         val button_add_colocation = view?.findViewById<Button>(R.id.button_add_colocation)
         button_add_colocation?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
         button_add_colocation?.setOnClickListener() {
-
+        val textViewNomCodeColoc = view.findViewById<TextView>(R.id.textViewNomCodeColoc)
+            textViewNomCodeColoc.visibility = View.VISIBLE
+            val textCodeColoc = view.findViewById<TextView>(R.id.textCodeColoc)
+            textCodeColoc.setText("A9HRM")
+            textCodeColoc.visibility = View.VISIBLE
         }
         return view
     }

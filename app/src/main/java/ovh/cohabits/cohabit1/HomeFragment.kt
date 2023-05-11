@@ -50,11 +50,12 @@ class HomeFragment : Fragment() {
         button_creer?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
         button_creer?.setOnClickListener() {
             findNavController().navigate(R.id.action_home_to_add_colocation)
-
         }
         val button_rejoindre = view?.findViewById<Button>(R.id.button_rejoindre_colocation)
         button_rejoindre?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
-
+        button_rejoindre?.setOnClickListener() {
+            findNavController().navigate(R.id.action_home_to_rejoindre_colocation)
+        }
         //Mettre la condition ici
         return view
     }

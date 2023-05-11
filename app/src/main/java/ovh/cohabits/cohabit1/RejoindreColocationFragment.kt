@@ -37,12 +37,11 @@ class RejoindreColocationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_rejoindre_colocation, container, false)
-        val cardView = view?.findViewById<CardView>(R.id.button_rejoindre_colocation)
+        val cardView = view?.findViewById<CardView>(R.id.card_view_box_rejoindre_colocation)
         cardView?.setBackgroundResource(R.drawable.box)
-        val button_add_colocation = view?.findViewById<Button>(R.id.button_rejoindre_colocation)
-        button_add_colocation?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
-        button_add_colocation?.setOnClickListener() {
-
+        val button_rejoindre_colocation = view?.findViewById<Button>(R.id.button_rejoindre_colocation)
+        button_rejoindre_colocation?.setBackgroundTintList(this.getResources().getColorStateList(R.color.purple_500));
+        button_rejoindre_colocation?.setOnClickListener() {
         }
         return view
     }
