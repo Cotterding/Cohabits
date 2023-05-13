@@ -57,6 +57,13 @@ class cohabitsClass() : android.app.Application() {
     //then session MUST be the email of the app user
     var session = ""
 
+    //firebase token for notifications
+    //this token is stored on server in the student table
+    //it is received by MyFirebaseMessagingService:onNewToken
+    //we need to keep this token locally
+    //because it is used to create a new account from this smartphone
+    var token = ""
+
     //this method is called by kotlin when creating the app object
     //we override its definition for the subclass cohabitsClass
     override fun onCreate() {
@@ -101,8 +108,6 @@ class cohabitsClass() : android.app.Application() {
                         println(String(error.networkResponse.data))
                     } else if (error is com.android.volley.NetworkError) {
                         println("Please check your internet connection")
-                    } else if (error is com.android.volley.ParseError) {
-                        println("Parsing error! Please try again after some time")
                     } else if (error is com.android.volley.ParseError) {
                         println("Parsing error! Please try again after some time")
                     }

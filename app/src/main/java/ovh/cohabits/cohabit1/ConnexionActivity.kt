@@ -84,6 +84,7 @@ class ConnexionActivity : AppCompatActivity() {
             var data = JSONObject()
             data.put("email", email)
             data.put("password", pwd)
+            data.put("token", app.token)
 
             fun done(response: JSONObject) {
                 //display the response message with a popup on screen
